@@ -359,18 +359,18 @@ p {
   position: relative;
 }
 
-/* Square bullet matched visually to the period dot in section-display headings.
-   In Archivo Black, the dot's visible glyph is ~30% of the font-size,
-   so we mirror the heading's clamp scale at 0.30 multiplier. */
+/* Orange plus marker — uses two crossed bars built from gradients */
 .why-list li::before {
   content: '';
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(12px, 2.04vw, 24.6px);
-  height: clamp(12px, 2.04vw, 24.6px);
-  background: var(--accent);
+  width: clamp(14px, 1.6vw, 20px);
+  height: clamp(14px, 1.6vw, 20px);
+  background:
+    linear-gradient(var(--accent), var(--accent)) center / 100% 2.5px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) center / 2.5px 100% no-repeat;
 }
 
 .why-list li:first-child {
