@@ -359,14 +359,17 @@ p {
   position: relative;
 }
 
+/* Square bullet matched visually to the period dot in section-display headings.
+   In Archivo Black, the dot's visible glyph is ~30% of the font-size,
+   so we mirror the heading's clamp scale at 0.30 multiplier. */
 .why-list li::before {
   content: '';
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 0.62em;
-  height: 0.62em;
+  width: clamp(12px, 2.04vw, 24.6px);
+  height: clamp(12px, 2.04vw, 24.6px);
   background: var(--accent);
 }
 
