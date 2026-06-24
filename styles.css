@@ -353,23 +353,23 @@ p {
   font-size: var(--text-md);
   line-height: 1.5;
   color: var(--ink);
-  padding: 20px 0 20px clamp(32px, 5vw, 52px);
+  padding: 18px 0 18px 32px;
   border-bottom: 1px solid var(--rule);
   letter-spacing: -0.005em;
   position: relative;
 }
 
 /* Square bullet matched visually to the period dot in section-display headings.
-   --text-hero = clamp(40px, 6.8vw, 82px); Archivo Black dot visually occupies
-   ~0.42 of the font-size, so the bullet mirrors that scale. */
+   In Archivo Black, the dot's visible glyph is ~30% of the font-size,
+   so we mirror the heading's clamp scale at 0.30 multiplier. */
 .why-list li::before {
   content: '';
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(17px, 2.86vw, 34px);
-  height: clamp(17px, 2.86vw, 34px);
+  width: clamp(12px, 2.04vw, 24.6px);
+  height: clamp(12px, 2.04vw, 24.6px);
   background: var(--accent);
 }
 
