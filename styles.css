@@ -365,8 +365,8 @@ p {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
+  width: 0.62em;
+  height: 0.62em;
   background: var(--accent);
 }
 
