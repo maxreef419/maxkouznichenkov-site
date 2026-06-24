@@ -353,7 +353,7 @@ p {
   font-size: var(--text-md);
   line-height: 1.5;
   color: var(--ink);
-  padding: 16px 0 16px 28px;
+  padding: 18px 0 18px 32px;
   border-bottom: 1px solid var(--rule);
   letter-spacing: -0.005em;
   position: relative;
@@ -363,9 +363,10 @@ p {
   content: '';
   position: absolute;
   left: 0;
-  top: 27px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 14px;
-  height: 1px;
+  height: 14px;
   background: var(--accent);
 }
 
