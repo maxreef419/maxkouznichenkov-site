@@ -19,7 +19,7 @@
 
   /* Fonts */
   --font-display: 'Archivo Black', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Helvetica Neue', 'Helvetica', 'Inter', Arial, sans-serif;
 
   /* Layout */
   --max: 1240px;
@@ -28,8 +28,8 @@
   /* Type scale */
   --text-xs: 11px;
   --text-sm: 13px;
-  --text-base: 15px;
-  --text-md: 15.5px;
+  --text-base: 16.5px;
+  --text-md: 17px;
   --text-lg: 18px;
   --text-xl: clamp(24px, 2.8vw, 32px);
   --text-hero: clamp(40px, 6.8vw, 82px);
@@ -50,7 +50,7 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -199,7 +199,7 @@ p {
 .hero-lede {
   font-family: var(--font-body);
   font-size: var(--text-md);
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--ink);
   max-width: 56ch;
   margin: 0 0 clamp(28px, 4vw, 48px);
