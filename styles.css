@@ -5,34 +5,35 @@
    ============================================================ */
 
 :root {
-  /* Palette */
-  --ink: #000000;
-  --ink-soft: #333333;
-  --ink-mute: #6a6a6a;
-  --paper: #ffffff;
-  --paper-alt: #f6f4ef;
-  --rule: #e6e3dc;
-  --accent: #ff5733;
-  --accent-hover: #e6431f;
+  /* Palette — orange editorial grotesk */
+  --ink: #111111;
+  --ink-soft: #2a2a2a;
+  --ink-mute: #8a8580;
+  --paper: #f7f3ee;
+  --paper-alt: #efeae3;
+  --rule: #d9d4cc;
+  --accent: #ff5a1f;
+  --accent-hover: #e64a10;
 
-  /* Fonts */
-  --font-display: 'Archivo Black', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Helvetica Neue', 'Helvetica', 'Inter', Arial, sans-serif;
+  /* Fonts — Archivo display + Inter body */
+  --font-display: 'Archivo', 'Archivo Black', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
 
   /* Layout */
   --max: 1240px;
   --gutter: clamp(20px, 4vw, 56px);
 
-  /* Type scale */
-  --text-xs: 11px;
+  /* Type scale per brief */
+  --text-xs: 12px;
   --text-sm: 13px;
-  --text-base: 16.5px;
-  --text-md: 17px;
-  --text-lg: 18px;
-  --text-xl: clamp(24px, 2.8vw, 32px);
-  --text-hero: clamp(40px, 6.8vw, 82px);
+  --text-base: 18px;
+  --text-md: 19px;
+  --text-lg: 21px;
+  --text-statement: clamp(26px, 4vw, 48px);
+  --text-hero: clamp(48px, 10vw, 140px);
+  --text-section: clamp(38px, 7vw, 96px);
+  --text-contact: clamp(48px, 9vw, 120px);
   --text-mega: clamp(56px, 10vw, 132px);
-  --text-stat: clamp(72px, 13vw, 180px);
 }
 
 * {
@@ -50,7 +51,8 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -101,9 +103,10 @@ p {
   align-items: center;
   gap: 12px;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--text-sm);
-  letter-spacing: -0.005em;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink);
 }
 
@@ -111,9 +114,10 @@ p {
   display: flex;
   gap: 32px;
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  letter-spacing: 0;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink);
 }
 
@@ -188,20 +192,20 @@ p {
 
 .eyebrow {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--text-sm);
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: clamp(20px, 3vw, 40px);
+  color: var(--ink);
+  margin-bottom: clamp(24px, 3.5vw, 48px);
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 900;
   font-size: var(--text-hero);
-  line-height: 0.95;
-  letter-spacing: -0.035em;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   margin: 0 0 clamp(28px, 4vw, 48px);
   color: var(--ink);
   max-width: 14ch;
@@ -214,10 +218,11 @@ p {
 
 .hero-lede {
   font-family: var(--font-body);
-  font-size: var(--text-md);
-  line-height: 1.6;
+  font-weight: 400;
+  font-size: var(--text-lg);
+  line-height: 1.5;
   color: var(--ink);
-  max-width: 56ch;
+  max-width: 38ch;
   margin: 0 0 clamp(28px, 4vw, 48px);
 }
 
@@ -237,9 +242,10 @@ p {
   align-items: center;
   gap: 14px;
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink);
   border-bottom: 1px solid var(--ink);
   padding-bottom: 4px;
@@ -274,24 +280,24 @@ p {
   padding: clamp(96px, 13vw, 168px) var(--gutter);
 }
 
-/* Mono number indicator above the display heading */
+/* Editorial label above display heading */
 .section-num {
   font-family: var(--font-body);
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--text-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.08em;
   color: var(--accent);
-  margin: 0 0 clamp(20px, 2.4vw, 32px);
+  margin: 0 0 clamp(24px, 2.6vw, 36px);
 }
 
-/* Large A24-style display heading */
+/* Section display heading — black per brief */
 .section-display {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: var(--text-hero);
-  line-height: 0.92;
-  letter-spacing: -0.035em;
-  color: var(--accent);
+  font-weight: 900;
+  font-size: var(--text-section);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--ink);
   margin: 0 0 clamp(56px, 7vw, 96px);
   text-transform: uppercase;
   max-width: 12ch;
@@ -306,10 +312,11 @@ p {
 .prose p {
   font-family: var(--font-body);
   font-size: var(--text-md);
-  line-height: 1.7;
+  line-height: 1.55;
   color: var(--ink);
   margin-bottom: 1.4em;
   font-weight: 400;
+  max-width: 680px;
 }
 
 .prose p:last-child {
@@ -340,7 +347,7 @@ p {
   color: inherit;
 }
 
-/* ---------- HOW I CONTRIBUTE — editorial list ---------- */
+/* ---------- HOW I CONTRIBUTE — editorial list with orange numbers ---------- */
 .service-list {
   list-style: none;
   margin: 0;
@@ -350,67 +357,77 @@ p {
 
 .service-list li {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: clamp(24px, 4vw, 64px);
-  padding: clamp(28px, 3.4vw, 44px) 0;
+  grid-template-columns: clamp(48px, 5vw, 72px) minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: clamp(20px, 3vw, 48px);
+  padding: clamp(32px, 3.6vw, 48px) 0;
   border-bottom: 1px solid var(--rule);
   align-items: baseline;
 }
 
-.service-title {
+.service-num {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(13px, 1.05vw, 15px);
-  line-height: 1.3;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--accent);
   text-transform: uppercase;
+  line-height: 1;
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   color: var(--ink);
   margin: 0;
+  text-transform: none;
 }
 
 .service-body {
   font-family: var(--font-body);
+  font-weight: 400;
   font-size: var(--text-md);
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--ink-soft);
   margin: 0;
   max-width: 52ch;
 }
 
-/* ---------- BEYOND THE MUSIC — list with orange plus markers ---------- */
+/* ---------- BEYOND THE MUSIC — editorial numbered list ---------- */
 .why-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  border-top: 1px solid var(--rule);
+  counter-reset: why;
 }
 
 .why-list li {
+  display: grid;
+  grid-template-columns: clamp(48px, 5vw, 72px) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 48px);
+  align-items: baseline;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 400;
   font-size: var(--text-md);
   line-height: 1.5;
   color: var(--ink);
-  padding: 18px 0 18px 32px;
+  padding: clamp(20px, 2.4vw, 28px) 0;
   border-bottom: 1px solid var(--rule);
   letter-spacing: -0.005em;
-  position: relative;
+  counter-increment: why;
 }
 
 .why-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(14px, 1.6vw, 20px);
-  height: clamp(14px, 1.6vw, 20px);
-  background:
-    linear-gradient(var(--accent), var(--accent)) center / 100% 2.5px no-repeat,
-    linear-gradient(var(--accent), var(--accent)) center / 2.5px 100% no-repeat;
-}
-
-.why-list li:first-child {
-  border-top: 1px solid var(--rule);
+  content: counter(why, decimal-leading-zero);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  line-height: 1;
 }
 
 /* ---------- CLIENTS — flowing list with middots ---------- */
@@ -422,19 +439,19 @@ p {
 
 .micro-label {
   font-family: var(--font-body);
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--text-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 16px;
+  margin: 0 0 20px;
 }
 
 .client-list {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 400;
   font-size: var(--text-md);
-  line-height: 1.9;
+  line-height: 1.85;
   color: var(--ink);
   letter-spacing: -0.005em;
 }
@@ -447,9 +464,9 @@ p {
 
 .contact-headline {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: var(--text-mega);
-  line-height: 0.92;
+  font-weight: 900;
+  font-size: var(--text-contact);
+  line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--ink);
   margin: 0 0 clamp(48px, 6vw, 80px);
@@ -463,10 +480,10 @@ p {
 
 .contact-email {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: clamp(26px, 3.6vw, 44px);
   line-height: 1.05;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   margin: 0 0 clamp(32px, 4vw, 48px);
   text-transform: lowercase;
 }
@@ -489,13 +506,13 @@ p {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 32px;
+  gap: 14px 36px;
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--ink);
 }
 
 .contact-links a {
@@ -552,9 +569,10 @@ p {
   align-items: baseline;
   gap: 24px;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 700;
   font-size: var(--text-xs);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink-mute);
   border-top: 1px solid var(--rule);
 }
@@ -599,34 +617,22 @@ p {
 .reveal.is-visible .stagger:nth-child(5) { transition-delay: 520ms; }
 .reveal.is-visible .stagger:nth-child(6) { transition-delay: 620ms; }
 
-/* Subtle hover on editorial list rows */
+/* Subtle hover — single color shift, no movement */
 .service-list li,
-.why-list li {
-  transition: background 0.4s ease, padding 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.service-list li:hover {
-  background: linear-gradient(to right, transparent, color-mix(in oklab, var(--paper-alt) 70%, transparent) 8%, transparent 92%);
-}
-
-.service-list li:hover .service-title {
-  color: var(--accent);
-}
-
-.service-title {
+.why-list li,
+.service-title,
+.service-num,
+.why-list li::before {
   transition: color 0.35s ease;
 }
 
+.service-list li:hover .service-title,
+.service-list li:hover .service-num {
+  color: var(--accent);
+}
+
 .why-list li:hover {
-  padding-left: 40px;
-}
-
-.why-list li::before {
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.why-list li:hover::before {
-  transform: translateY(-50%) rotate(90deg);
+  color: var(--accent);
 }
 
 /* Soft entrance for the hero on initial load */
@@ -684,8 +690,15 @@ p {
 /* ---------- responsive ---------- */
 @media (max-width: 960px) {
   .service-list li {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: clamp(40px, 7vw, 56px) 1fr;
+    gap: 10px 20px;
+  }
+  .service-list li .service-body {
+    grid-column: 2 / -1;
+  }
+
+  .why-list li {
+    grid-template-columns: clamp(40px, 7vw, 56px) 1fr;
   }
 
   .clients-grid {
@@ -694,6 +707,16 @@ p {
 }
 
 @media (max-width: 720px) {
+  :root {
+    --text-base: 17px;
+    --text-md: 17px;
+    --text-lg: 18px;
+    --text-hero: clamp(48px, 13vw, 64px);
+    --text-section: clamp(38px, 11vw, 52px);
+    --text-contact: clamp(44px, 13vw, 64px);
+    --text-statement: clamp(24px, 6vw, 30px);
+  }
+
   .site-header nav {
     gap: 20px;
   }
