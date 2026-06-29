@@ -340,7 +340,7 @@ p {
   color: inherit;
 }
 
-/* ---------- HOW I CONTRIBUTE — 3 CARDS ---------- */
+/* ---------- HOW I CONTRIBUTE — 3 typographic cards ---------- */
 .service-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -349,13 +349,13 @@ p {
 
 .service-card {
   position: relative;
-  padding: clamp(28px, 3.2vw, 44px);
+  padding: clamp(32px, 3.6vw, 48px);
   background: var(--paper-alt);
   border: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  min-height: clamp(280px, 32vw, 360px);
+  gap: clamp(24px, 2.8vw, 36px);
+  min-height: clamp(320px, 36vw, 400px);
   transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -365,24 +365,48 @@ p {
   transform: translateY(-4px);
 }
 
-.card-num {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--text-xs);
-  letter-spacing: 0.22em;
-  color: var(--accent);
+.card-title {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
 }
 
-.card-title {
+.ct-line {
+  display: block;
+  line-height: 0.95;
+}
+
+.ct-reg {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 26px);
+  letter-spacing: -0.01em;
+  color: var(--ink-soft);
+}
+
+.ct-display {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: clamp(26px, 3vw, 40px);
+  letter-spacing: -0.04em;
   text-transform: uppercase;
+  color: var(--accent);
+  line-height: 0.9;
+  margin: 6px 0 4px;
+  word-break: keep-all;
+  hyphens: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+.ct-italic {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 26px);
+  letter-spacing: -0.005em;
   color: var(--ink);
-  margin: 0;
 }
 
 .card-body {
@@ -393,57 +417,47 @@ p {
   margin: auto 0 0;
 }
 
-/* ---------- BEYOND THE MUSIC — STATS ---------- */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(32px, 4vw, 56px);
-  margin-bottom: clamp(56px, 7vw, 88px);
-  padding-top: clamp(8px, 1vw, 16px);
+/* ---------- BEYOND THE MUSIC — list with orange plus markers ---------- */
+.why-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.stat {
-  border-top: 1px solid var(--ink);
-  padding-top: clamp(20px, 2.4vw, 32px);
-}
-
-.stat-num {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: var(--text-stat);
-  line-height: 0.85;
-  letter-spacing: -0.05em;
-  color: var(--accent);
-  margin: 0 0 clamp(16px, 2vw, 28px);
-}
-
-.stat-plus {
-  font-size: 0.55em;
-  vertical-align: top;
-  margin-left: 0.05em;
-}
-
-.stat-label {
+.why-list li {
   font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--text-md);
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--ink);
+  padding: 18px 0 18px 32px;
+  border-bottom: 1px solid var(--rule);
   letter-spacing: -0.005em;
+  position: relative;
 }
 
-.why-summary {
-  font-family: var(--font-body);
-  font-size: var(--text-md);
-  line-height: 1.7;
-  color: var(--ink);
-  max-width: 62ch;
-  font-weight: 400;
+.why-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(14px, 1.6vw, 20px);
+  height: clamp(14px, 1.6vw, 20px);
+  background:
+    linear-gradient(var(--accent), var(--accent)) center / 100% 2.5px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) center / 2.5px 100% no-repeat;
 }
 
-/* ---------- CLIENTS — BRAND GRID ---------- */
-.brand-block + .brand-block {
-  margin-top: clamp(56px, 7vw, 88px);
+.why-list li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+/* ---------- CLIENTS — flowing list with middots ---------- */
+.clients-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
 }
 
 .micro-label {
@@ -453,54 +467,19 @@ p {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 clamp(20px, 2.4vw, 28px);
+  margin: 0 0 16px;
 }
 
-.brand-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--rule);
-  border-left: 1px solid var(--rule);
-}
-
-.brand-grid--agencies {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.brand-grid li {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(15px, 1.5vw, 19px);
-  letter-spacing: -0.005em;
-  text-transform: uppercase;
-  color: var(--ink);
-  padding: clamp(20px, 2.4vw, 28px) clamp(16px, 2vw, 24px);
-  border-right: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  min-height: clamp(68px, 7vw, 88px);
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.brand-grid li:hover {
-  background: var(--paper-alt);
-  color: var(--accent);
-}
-
-.brand-more {
+.client-list {
   font-family: var(--font-body);
-  font-style: italic;
-  font-size: var(--text-sm);
-  color: var(--ink-mute);
-  margin-top: clamp(20px, 2.4vw, 28px);
-  letter-spacing: 0.01em;
+  font-weight: 500;
+  font-size: var(--text-md);
+  line-height: 1.9;
+  color: var(--ink);
+  letter-spacing: -0.005em;
 }
 
-/* ---------- CONTACT — APPLE STYLE ---------- */
+/* ---------- CONTACT — Apple-style balanced ---------- */
 .contact {
   padding-top: clamp(112px, 15vw, 192px);
   padding-bottom: clamp(112px, 15vw, 192px);
@@ -513,7 +492,7 @@ p {
   line-height: 0.92;
   letter-spacing: -0.04em;
   color: var(--ink);
-  margin: 0 0 clamp(64px, 8vw, 112px);
+  margin: 0 0 clamp(48px, 6vw, 80px);
   text-transform: uppercase;
   max-width: 14ch;
 }
@@ -522,57 +501,26 @@ p {
   color: var(--accent);
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 96px);
-  align-items: start;
-  border-top: 1px solid var(--rule);
-  padding-top: clamp(40px, 5vw, 64px);
-}
-
-.contact-eyebrow {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--text-xs);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 clamp(20px, 2.4vw, 28px);
-}
-
 .contact-email {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(28px, 4.2vw, 56px);
+  font-size: clamp(26px, 3.6vw, 44px);
   line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin: 0 0 clamp(20px, 2.4vw, 32px);
+  letter-spacing: -0.025em;
+  margin: 0 0 clamp(32px, 4vw, 48px);
   text-transform: lowercase;
 }
 
 .contact-email a {
-  position: relative;
   display: inline-block;
   padding-bottom: 6px;
-  background-image: linear-gradient(var(--ink), var(--ink));
-  background-repeat: no-repeat;
-  background-size: 100% 1px;
-  background-position: 0 100%;
-  transition: color 0.3s ease, background-size 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-bottom: 1px solid var(--ink);
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-email a:hover {
   color: var(--accent);
-  background-image: linear-gradient(var(--accent), var(--accent));
-}
-
-.contact-note {
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  color: var(--ink-mute);
-  max-width: 36ch;
-  line-height: 1.55;
+  border-bottom-color: var(--accent);
 }
 
 .contact-links {
@@ -580,38 +528,42 @@ p {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: clamp(10px, 1.2vw, 14px);
+  flex-wrap: wrap;
+  gap: 14px 32px;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: var(--text-md);
-  letter-spacing: -0.005em;
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 
 .contact-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 0;
-  color: var(--ink);
   position: relative;
-  transition: color 0.3s ease, gap 0.3s ease;
+  padding: 4px 0;
+  color: var(--ink);
+  transition: color 0.3s ease;
 }
 
-.contact-links a span {
-  font-size: 0.85em;
-  color: var(--ink-mute);
-  transition: color 0.3s ease, transform 0.3s ease;
+.contact-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .contact-links a:hover {
   color: var(--accent);
-  gap: 14px;
 }
 
-.contact-links a:hover span {
-  color: var(--accent);
-  transform: translate(2px, -2px);
+.contact-links a:hover::after {
+  transform: scaleX(1);
 }
 
 /* ---------- footer ---------- */
@@ -669,22 +621,8 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .stats {
+  .clients-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .brand-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .brand-grid--agencies {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 56px;
   }
 }
 
@@ -710,14 +648,6 @@ p {
 
   .hero-title {
     max-width: 14ch;
-  }
-
-  .brand-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .brand-grid--agencies {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .site-footer {
