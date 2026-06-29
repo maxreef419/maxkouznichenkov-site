@@ -1,20 +1,18 @@
 /* ============================================================
    Max Kouznichenkov — Advertising Composer & Producer
-   Editorial / executive tone.
-   Matches the existing maxkouznichenkov.com design system:
-   Manrope (headings) + Poppins (body) on white, with the brand
-   orange #ff5733 used as a single, restrained accent.
+   Editorial / executive tone. Archivo Black display + Helvetica
+   Neue body. Brand orange #ff5733 used as a single accent.
    ============================================================ */
 
 :root {
-  /* Palette — pulled from maxkouznichenkov.com */
+  /* Palette */
   --ink: #000000;
   --ink-soft: #333333;
   --ink-mute: #6a6a6a;
   --paper: #ffffff;
   --paper-alt: #f6f4ef;
   --rule: #e6e3dc;
-  --accent: #ff5733;       /* brand orange */
+  --accent: #ff5733;
   --accent-hover: #e6431f;
 
   /* Fonts */
@@ -33,6 +31,8 @@
   --text-lg: 18px;
   --text-xl: clamp(24px, 2.8vw, 32px);
   --text-hero: clamp(40px, 6.8vw, 82px);
+  --text-mega: clamp(56px, 10vw, 132px);
+  --text-stat: clamp(72px, 13vw, 180px);
 }
 
 * {
@@ -107,11 +107,6 @@ p {
   color: var(--ink);
 }
 
-.wordmark .mark {
-  color: var(--ink);
-  flex: 0 0 auto;
-}
-
 .site-header nav {
   display: flex;
   gap: 32px;
@@ -122,32 +117,46 @@ p {
   color: var(--ink);
 }
 
+/* Header nav: animated underline reveal */
 .site-header nav a {
   position: relative;
   padding: 4px 0;
   transition: color 0.3s ease;
 }
 
+.site-header nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 .site-header nav a:hover {
   color: var(--accent);
+}
+
+.site-header nav a:hover::after {
+  transform: scaleX(1);
 }
 
 /* ---------- hero ---------- */
 .hero {
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(56px, 8vw, 96px) var(--gutter) clamp(64px, 9vw, 110px);
+  padding: clamp(72px, 10vw, 120px) var(--gutter) clamp(96px, 13vw, 160px);
 }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(240px, 24vw, 320px);
+  grid-template-columns: minmax(0, 1fr) clamp(260px, 26vw, 340px);
   gap: clamp(40px, 6vw, 96px);
   align-items: start;
-}
-
-.hero-portrait {
-  margin-top: clamp(24px, 3vw, 48px);
 }
 
 .hero-text {
@@ -155,10 +164,12 @@ p {
 }
 
 .hero-portrait {
+  margin: clamp(24px, 3vw, 48px) 0 0;
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: #f4f1ea;
+  background: #efece5;
+  position: relative;
 }
 
 .hero-portrait img {
@@ -167,7 +178,12 @@ p {
   object-fit: cover;
   object-position: center 30%;
   display: block;
-  filter: grayscale(8%) contrast(1.02);
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-portrait:hover img {
+  transform: scale(1.02);
 }
 
 .eyebrow {
@@ -182,7 +198,7 @@ p {
 
 .hero-title {
   font-family: var(--font-display);
-  font-weight: 400; /* Archivo Black is naturally heavy */
+  font-weight: 400;
   font-size: var(--text-hero);
   line-height: 0.95;
   letter-spacing: -0.035em;
@@ -227,12 +243,13 @@ p {
   color: var(--ink);
   border-bottom: 1px solid var(--ink);
   padding-bottom: 4px;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease, gap 0.3s ease;
 }
 
 .link-action:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
+  gap: 20px;
 }
 
 /* ---------- rule between sections ---------- */
@@ -244,7 +261,7 @@ p {
   margin: 0 auto;
 }
 
-/* ---------- shared section spacing ---------- */
+/* ---------- shared section spacing (+more air) ---------- */
 .about,
 .why-early,
 .work,
@@ -254,24 +271,7 @@ p {
 .contact {
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(64px, 9vw, 112px) var(--gutter);
-}
-
-.section-label {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--text-xs);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 clamp(16px, 2vw, 24px);
-}
-
-.section-label[data-num]::before {
-  content: attr(data-num) " \2014 \00a0";
-  letter-spacing: 0;
-  font-weight: 600;
-  color: var(--accent);
+  padding: clamp(96px, 13vw, 168px) var(--gutter);
 }
 
 /* Mono number indicator above the display heading */
@@ -281,18 +281,18 @@ p {
   font-size: var(--text-xs);
   letter-spacing: 0.22em;
   color: var(--accent);
-  margin: 0 0 clamp(16px, 2vw, 24px);
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
 }
 
-/* Large A24-style display heading shared by all sections */
+/* Large A24-style display heading */
 .section-display {
   font-family: var(--font-display);
-  font-weight: 400; /* Archivo Black is naturally heavy */
+  font-weight: 400;
   font-size: var(--text-hero);
   line-height: 0.92;
   letter-spacing: -0.035em;
   color: var(--accent);
-  margin: 0 0 clamp(40px, 5vw, 64px);
+  margin: 0 0 clamp(56px, 7vw, 96px);
   text-transform: uppercase;
   max-width: 12ch;
 }
@@ -340,95 +340,110 @@ p {
   color: inherit;
 }
 
-/* ---------- why clients bring me in early ---------- */
-.why-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.why-list li {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-md);
-  line-height: 1.5;
-  color: var(--ink);
-  padding: 18px 0 18px 32px;
-  border-bottom: 1px solid var(--rule);
-  letter-spacing: -0.005em;
-  position: relative;
-}
-
-/* Orange plus marker — uses two crossed bars built from gradients */
-.why-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(14px, 1.6vw, 20px);
-  height: clamp(14px, 1.6vw, 20px);
-  background:
-    linear-gradient(var(--accent), var(--accent)) center / 100% 2.5px no-repeat,
-    linear-gradient(var(--accent), var(--accent)) center / 2.5px 100% no-repeat;
-}
-
-.why-list li:first-child {
-  border-top: 1px solid var(--rule);
-}
-
-/* ---------- credits list ---------- */
-.credits {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--rule);
-}
-
-.credits li {
+/* ---------- HOW I CONTRIBUTE — 3 CARDS ---------- */
+.service-cards {
   display: grid;
-  grid-template-columns: 80px minmax(220px, 260px) 1fr;
-  gap: 24px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: baseline;
-  transition: background 0.2s ease;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 32px);
 }
 
-.credits li:hover {
+.service-card {
+  position: relative;
+  padding: clamp(28px, 3.2vw, 44px);
   background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: clamp(280px, 32vw, 360px);
+  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.credit-year {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  color: var(--ink-mute);
-  letter-spacing: 0.04em;
+.service-card:hover {
+  background: var(--paper);
+  border-color: var(--ink);
+  transform: translateY(-4px);
 }
 
-.credit-brand {
+.card-num {
   font-family: var(--font-body);
   font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+
+.card-body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: auto 0 0;
+}
+
+/* ---------- BEYOND THE MUSIC — STATS ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(32px, 4vw, 56px);
+  margin-bottom: clamp(56px, 7vw, 88px);
+  padding-top: clamp(8px, 1vw, 16px);
+}
+
+.stat {
+  border-top: 1px solid var(--ink);
+  padding-top: clamp(20px, 2.4vw, 32px);
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-stat);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--accent);
+  margin: 0 0 clamp(16px, 2vw, 28px);
+}
+
+.stat-plus {
+  font-size: 0.55em;
+  vertical-align: top;
+  margin-left: 0.05em;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: var(--text-md);
+  line-height: 1.4;
   color: var(--ink);
   letter-spacing: -0.005em;
-  white-space: nowrap;
-  overflow: visible;
 }
 
-.credit-detail {
+.why-summary {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
-  color: var(--ink-soft);
-  line-height: 1.5;
+  font-size: var(--text-md);
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 62ch;
+  font-weight: 400;
 }
 
-/* ---------- clients ---------- */
-.clients-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(32px, 5vw, 80px);
+/* ---------- CLIENTS — BRAND GRID ---------- */
+.brand-block + .brand-block {
+  margin-top: clamp(56px, 7vw, 88px);
 }
 
 .micro-label {
@@ -438,98 +453,126 @@ p {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 16px;
+  margin: 0 0 clamp(20px, 2.4vw, 28px);
 }
 
-.client-list {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-md);
-  line-height: 1.9;
-  color: var(--ink);
-  letter-spacing: -0.005em;
-}
-
-/* ---------- recognition ---------- */
-.recognition-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
-}
-
-.recognition-text {
-  min-width: 0;
-}
-
-.rec-line {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-md);
-  color: var(--ink);
-  line-height: 1.5;
-}
-
-.rec-line strong {
-  font-weight: 600;
-}
-
-.recognition-poster {
-  margin: 0;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #f4f1ea;
-}
-
-.recognition-poster img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ---------- services ---------- */
-.service-list {
+.brand-grid {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.service-list li {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-md);
-  line-height: 1.5;
-  color: var(--ink);
-  padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
-  letter-spacing: -0.005em;
-}
-
-.service-list li:first-child {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
 }
 
-/* ---------- contact ---------- */
-.contact-email {
+.brand-grid--agencies {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.brand-grid li {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(15px, 1.5vw, 19px);
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: clamp(20px, 2.4vw, 28px) clamp(16px, 2vw, 24px);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  min-height: clamp(68px, 7vw, 88px);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.brand-grid li:hover {
+  background: var(--paper-alt);
+  color: var(--accent);
+}
+
+.brand-more {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--text-sm);
+  color: var(--ink-mute);
+  margin-top: clamp(20px, 2.4vw, 28px);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- CONTACT — APPLE STYLE ---------- */
+.contact {
+  padding-top: clamp(112px, 15vw, 192px);
+  padding-bottom: clamp(112px, 15vw, 192px);
+}
+
+.contact-headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-mega);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 0 0 clamp(64px, 8vw, 112px);
+  text-transform: uppercase;
+  max-width: 14ch;
+}
+
+.contact-headline .accent {
+  color: var(--accent);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(40px, 5vw, 64px);
+}
+
+.contact-eyebrow {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: clamp(24px, 3.4vw, 40px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: clamp(28px, 4vw, 40px);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 clamp(20px, 2.4vw, 28px);
+}
+
+.contact-email {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 4.2vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
+  text-transform: lowercase;
 }
 
 .contact-email a {
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 4px;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  transition: color 0.3s ease, background-size 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .contact-email a:hover {
   color: var(--accent);
-  border-bottom-color: var(--accent);
+  background-image: linear-gradient(var(--accent), var(--accent));
+}
+
+.contact-note {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--ink-mute);
+  max-width: 36ch;
+  line-height: 1.55;
 }
 
 .contact-links {
@@ -537,24 +580,38 @@ p {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
+  flex-direction: column;
+  gap: clamp(10px, 1.2vw, 14px);
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: var(--text-sm);
-  letter-spacing: 0.02em;
-  color: var(--ink-soft);
+  font-size: var(--text-md);
+  letter-spacing: -0.005em;
 }
 
 .contact-links a {
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 2px;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  color: var(--ink);
+  position: relative;
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.contact-links a span {
+  font-size: 0.85em;
+  color: var(--ink-mute);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-links a:hover {
   color: var(--accent);
-  border-bottom-color: var(--accent);
+  gap: 14px;
+}
+
+.contact-links a:hover span {
+  color: var(--accent);
+  transform: translate(2px, -2px);
 }
 
 /* ---------- footer ---------- */
@@ -578,7 +635,59 @@ p {
   text-align: right;
 }
 
+/* ---------- REVEAL ANIMATION ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-portrait img,
+  .service-card,
+  .link-action,
+  .contact-links a {
+    transition: none !important;
+  }
+}
+
 /* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .service-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .brand-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .brand-grid--agencies {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
 @media (max-width: 720px) {
   .site-header nav {
     gap: 20px;
@@ -603,31 +712,12 @@ p {
     max-width: 14ch;
   }
 
-  .credits li {
-    grid-template-columns: 60px 1fr;
-    grid-template-areas:
-      'year brand'
-      '. detail';
-    row-gap: 4px;
-  }
-  .credit-year {
-    grid-area: year;
-  }
-  .credit-brand {
-    grid-area: brand;
-    white-space: normal;
-  }
-  .credit-detail {
-    grid-area: detail;
+  .brand-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .clients-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .recognition-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .brand-grid--agencies {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .site-footer {
