@@ -24,16 +24,16 @@
   --gutter: clamp(20px, 4vw, 56px);
 
   /* Type scale per brief */
-  --text-xs: 12px;
-  --text-sm: 13px;
-  --text-base: 18px;
-  --text-md: 19px;
-  --text-lg: 21px;
-  --text-statement: clamp(26px, 4vw, 48px);
-  --text-hero: clamp(48px, 10vw, 140px);
-  --text-section: clamp(38px, 7vw, 96px);
-  --text-contact: clamp(48px, 9vw, 120px);
-  --text-mega: clamp(56px, 10vw, 132px);
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-base: 16px;
+  --text-md: 17px;
+  --text-lg: 19px;
+  --text-statement: clamp(23px, 3.5vw, 42px);
+  --text-hero: clamp(42px, 8.6vw, 122px);
+  --text-section: clamp(33px, 6vw, 84px);
+  --text-contact: clamp(42px, 7.8vw, 104px);
+  --text-mega: clamp(48px, 8.6vw, 116px);
 }
 
 * {
@@ -567,6 +567,45 @@ p {
   transform: scaleX(1);
 }
 
+.contact-note {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--ink-mute);
+  max-width: 56ch;
+  margin: clamp(64px, 8vw, 96px) 0 clamp(20px, 2.4vw, 32px);
+}
+
+.contact-reef {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 32px);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.contact-reef a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--ink);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-reef a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.contact-reef a:hover .link-arrow {
+  transform: translate(2px, -2px);
+}
+
 .link-arrow {
   display: inline-block;
   font-size: 1em;
@@ -733,13 +772,13 @@ p {
 
 @media (max-width: 720px) {
   :root {
-    --text-base: 17px;
-    --text-md: 17px;
-    --text-lg: 18px;
-    --text-hero: clamp(48px, 13vw, 64px);
-    --text-section: clamp(38px, 11vw, 52px);
-    --text-contact: clamp(44px, 13vw, 64px);
-    --text-statement: clamp(24px, 6vw, 30px);
+    --text-base: 15px;
+    --text-md: 15px;
+    --text-lg: 16px;
+    --text-hero: clamp(40px, 10.5vw, 56px);
+    --text-section: clamp(32px, 9.5vw, 46px);
+    --text-contact: clamp(38px, 11vw, 56px);
+    --text-statement: clamp(21px, 5.2vw, 27px);
   }
 
   .site-header nav {
