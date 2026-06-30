@@ -149,6 +149,29 @@ p {
   transform: scaleX(1);
 }
 
+/* Social icons in header */
+.site-header nav a.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--ink);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.site-header nav a.social-icon::after {
+  display: none;
+}
+
+.site-header nav a.social-icon:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.site-header nav a.social-icon svg {
+  display: block;
+}
+
 /* ---------- hero ---------- */
 .hero {
   max-width: var(--max);
