@@ -231,12 +231,26 @@ p {
   letter-spacing: -0.04em;
   margin: 0 0 clamp(28px, 4vw, 48px);
   color: var(--ink);
-  max-width: 14ch;
   text-transform: uppercase;
 }
 
 .hero-title .accent {
   color: var(--accent);
+}
+
+/* Black continuation: sized to match section headings visually,
+   constrained by the narrower hero text column so two lines fit. */
+.hero-title .hero-rest {
+  display: block;
+  font-size: clamp(30px, 4.1vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-top: clamp(8px, 1.2vw, 18px);
+}
+
+.hero-title .hero-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .hero-lede {
@@ -800,6 +814,15 @@ p {
 
   .hero-title {
     max-width: 14ch;
+  }
+
+  /* On mobile let the black continuation wrap naturally. */
+  .hero-title .hero-line {
+    white-space: normal;
+  }
+
+  .hero-title .hero-rest {
+    font-size: clamp(26px, 8vw, 42px);
   }
 
   .site-footer {
