@@ -620,10 +620,12 @@ p {
 
 .link-arrow {
   display: inline-block;
-  font-size: 1em;
+  width: 0.95em;
+  height: 0.95em;
   color: inherit;
-  margin-left: 4px;
-  font-weight: inherit;
+  margin-left: 8px;
+  vertical-align: -0.08em;
+  overflow: visible;
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
