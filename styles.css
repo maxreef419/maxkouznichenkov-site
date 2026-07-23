@@ -309,12 +309,93 @@ p {
 .why-early,
 .work,
 .clients,
+.cinematic,
 .recognition,
 .services,
 .contact {
   max-width: var(--max);
   margin: 0 auto;
   padding: clamp(96px, 13vw, 168px) var(--gutter);
+}
+
+/* ---------- cinematic ---------- */
+.cinematic .section-display {
+  max-width: none;
+  margin-bottom: clamp(48px, 6vw, 88px);
+}
+
+.cinematic-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.4vw, 36px);
+}
+
+.cinematic-item {
+  margin: 0;
+}
+
+.cinematic-item figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.4vw, 22px);
+}
+
+.poster {
+  position: relative;
+  aspect-ratio: 27 / 40;
+  overflow: hidden;
+  background: var(--paper-alt);
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.02),
+    0 12px 32px -18px rgba(17, 17, 17, 0.28),
+    0 30px 60px -30px rgba(17, 17, 17, 0.18);
+  transform: translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cinematic-item:hover .poster {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.02),
+    0 18px 40px -18px rgba(17, 17, 17, 0.36),
+    0 40px 80px -30px rgba(17, 17, 17, 0.24);
+}
+
+.cinematic-item:hover .poster img {
+  transform: scale(1.03);
+}
+
+.cinematic-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(18px, 1.6vw, 22px);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cinematic-meta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-mute);
+  margin: 4px 0 0;
+  letter-spacing: 0.02em;
 }
 
 /* Large editorial section number — own line, accent color */
@@ -782,6 +863,11 @@ p {
   .clients-grid {
     grid-template-columns: 1fr;
   }
+
+  .cinematic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -812,6 +898,26 @@ p {
     order: -1;
     max-width: 260px;
     aspect-ratio: 4 / 5;
+  }
+
+  .cinematic-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(28px, 6vw, 40px);
+  }
+
+  .cinematic-item figure {
+    gap: 14px;
+  }
+
+  .poster {
+    max-width: 460px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .cinematic-item figcaption {
+    text-align: left;
+    padding: 0 2px;
   }
 
   .hero-title {
