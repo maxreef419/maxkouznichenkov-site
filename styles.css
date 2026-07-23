@@ -329,8 +329,8 @@ p {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 2.4vw, 36px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(18px, 2vw, 32px);
 }
 
 .cinematic-item {
@@ -382,11 +382,12 @@ p {
 .cinematic-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(16px, 1.35vw, 20px);
   letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0;
   text-transform: uppercase;
+  line-height: 1.15;
 }
 
 .cinematic-meta {
