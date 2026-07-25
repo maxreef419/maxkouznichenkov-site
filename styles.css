@@ -232,6 +232,8 @@ p {
   margin: 0 0 clamp(28px, 4vw, 48px);
   color: var(--ink);
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .hero-title .accent {
@@ -242,7 +244,7 @@ p {
    constrained by the narrower hero text column so two lines fit. */
 .hero-title .hero-rest {
   display: block;
-  font-size: clamp(30px, 4.1vw, 56px);
+  font-size: clamp(28px, 3.6vw, 50px);
   line-height: 0.95;
   letter-spacing: -0.03em;
   margin-top: clamp(8px, 1.2vw, 18px);
@@ -250,7 +252,8 @@ p {
 
 .hero-title .hero-line {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .hero-lede {
@@ -923,11 +926,6 @@ p {
 
   .hero-title {
     max-width: 14ch;
-  }
-
-  /* On mobile let the black continuation wrap naturally. */
-  .hero-title .hero-line {
-    white-space: normal;
   }
 
   .hero-title .hero-rest {
