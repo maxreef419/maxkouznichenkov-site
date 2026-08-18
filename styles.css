@@ -1347,33 +1347,25 @@ body.no-scroll {
   }
 }
 
-/* ---------- header wordmark: short form on narrow screens ---------- */
-.wordmark-short {
-  display: none;
-}
-
+/* ---------- header: mobile nav only ---------- */
 @media (max-width: 640px) {
-  .wordmark-full {
+  .wordmark {
     display: none;
   }
 
-  .wordmark-short {
-    display: inline;
-  }
-
   .site-header {
+    justify-content: flex-end;
     padding-left: 20px;
     padding-right: 20px;
   }
 
   .site-header nav {
-    gap: 15px;
-    letter-spacing: 0.05em;
+    gap: 22px;
   }
 }
 
 @media (max-width: 400px) {
   .site-header nav {
-    gap: 12px;
+    gap: 16px;
   }
 }
