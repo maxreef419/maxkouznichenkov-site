@@ -115,7 +115,35 @@
           </svg>
         </a>
       </nav>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
     </header>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav class="mobile-nav-links" aria-label="Mobile primary">
+        <a href="#film"><span class="mobile-nav-num">01</span>Film</a>
+        <a href="#commercial"><span class="mobile-nav-num">02</span>Commercial</a>
+        <a href="#about"><span class="mobile-nav-num">03</span>About</a>
+        <a href="#services"><span class="mobile-nav-num">04</span>Contribute</a>
+        <a href="#clients"><span class="mobile-nav-num">05</span>Clients</a>
+        <a href="#contact"><span class="mobile-nav-num">06</span>Contact</a>
+      </nav>
+      <div class="mobile-nav-foot">
+        <a href="https://www.instagram.com/maxkouznichenkov/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/in/maxkouznichenkov" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.imdb.com/name/nm18171581/" target="_blank" rel="noopener noreferrer">IMDb</a>
+      </div>
+    </div>
+
 
     <main>
       <!-- 1. HERO -->
@@ -342,7 +370,7 @@
       <hr class="rule" />
 
       <!-- 04. SERVICES — editorial list -->
-      <section class="services reveal" aria-labelledby="serv-h">
+      <section id="services" class="services reveal" aria-labelledby="serv-h">
         <p class="section-num">04</p>
         <h2 id="serv-h" class="section-display">HOW I<br />CONTRIBUTE.</h2>
 
@@ -381,7 +409,7 @@
       <hr class="rule" />
 
       <!-- 05. CLIENTS -->
-      <section class="clients reveal" aria-labelledby="clients-h">
+      <section id="clients" class="clients reveal" aria-labelledby="clients-h">
         <p class="section-num">05</p>
         <h2 id="clients-h" class="section-display">TRUSTED<br />BY.</h2>
 
@@ -455,6 +483,58 @@
       document.getElementById('year').textContent = new Date().getFullYear();
 
       // Reveal-on-scroll animation
+      /* mobile menu */
+      (function () {
+        var toggle = document.querySelector('.nav-toggle');
+        var panel = document.getElementById('mobile-nav');
+        if (!toggle || !panel) return;
+
+        function open() {
+          panel.hidden = false;
+          document.body.classList.add('no-scroll');
+          toggle.setAttribute('aria-expanded', 'true');
+          toggle.setAttribute('aria-label', 'Close menu');
+          requestAnimationFrame(function () { panel.classList.add('is-open'); });
+        }
+
+        function close() {
+          panel.classList.remove('is-open');
+          document.body.classList.remove('no-scroll');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open menu');
+          window.setTimeout(function () {
+            if (!panel.classList.contains('is-open')) panel.hidden = true;
+          }, 300);
+        }
+
+        toggle.addEventListener('click', function () {
+          if (toggle.getAttribute('aria-expanded') === 'true') close();
+          else open();
+        });
+
+        panel.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', close);
+        });
+
+        var mark = document.querySelector('.wordmark');
+        if (mark) {
+          mark.addEventListener('click', function () {
+            if (toggle.getAttribute('aria-expanded') === 'true') close();
+          });
+        }
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            close();
+            toggle.focus();
+          }
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 720 && toggle.getAttribute('aria-expanded') === 'true') close();
+        });
+      })();
+
       (function () {
         if (!('IntersectionObserver' in window)) {
           document.querySelectorAll('.reveal').forEach(function (el) {
