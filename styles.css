@@ -1432,7 +1432,7 @@ body.no-scroll {
   padding: 10px 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(21px, 6.9vw, 36px);
+  font-size: clamp(25px, 7.4vw, 38px);
   line-height: 1.05;
   letter-spacing: -0.03em;
   text-transform: uppercase;
