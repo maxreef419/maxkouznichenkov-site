@@ -474,7 +474,6 @@
         <div class="lightbox-frame" id="lightbox-frame"></div>
         <p class="lightbox-meta">
           <span id="lightbox-label"></span>
-          <a id="lightbox-fallback" href="#" target="_blank" rel="noopener">Watch on Vimeo</a>
         </p>
       </div>
     </div>
@@ -563,14 +562,12 @@
         if (!box) return;
         var frame = document.getElementById('lightbox-frame');
         var label = document.getElementById('lightbox-label');
-        var fallback = document.getElementById('lightbox-fallback');
         var closeBtn = box.querySelector('.lightbox-close');
         var lastFocus = null;
 
         function open(id, text) {
           lastFocus = document.activeElement;
           label.textContent = text || '';
-          fallback.href = 'https://vimeo.com/' + id;
           frame.innerHTML =
             '<iframe src="https://player.vimeo.com/video/' + id +
             '?autoplay=1&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' +
