@@ -237,7 +237,7 @@
         <p class="section-num">02</p>
         <h2 id="commercial-h" class="section-display">COMMERCIAL.</h2>
 
-        <ul class="reel-grid" role="list">
+        <ul class="reel-grid" id="reel-grid" role="list">
           <li class="reel-item">
             <button class="reel-open" type="button" data-vimeo="849692144" data-label="California Realtors — Dear California Dream" aria-label="Play California Realtors — Dear California Dream">
               <span class="reel-frame">
@@ -316,7 +316,88 @@
               </span>
             </button>
           </li>
-        </ul>
+                  <li class="reel-item is-more" hidden>
+            <button class="reel-open" type="button" data-vimeo="882659457" data-label="YANGO Maps — A Perfect Way" aria-label="Play YANGO Maps — A Perfect Way">
+              <span class="reel-frame">
+                <img src="images/commercial/yango-maps.jpg" alt="YANGO Maps — A Perfect Way — commercial still" loading="lazy" width="1280" height="720" />
+                <span class="reel-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                </span>
+              </span>
+              <span class="reel-caption">
+                <span class="reel-brand">YANGO Maps</span><span class="reel-campaign">A Perfect Way</span>
+              </span>
+            </button>
+          </li>
+          <li class="reel-item is-more" hidden>
+            <button class="reel-open" type="button" data-vimeo="568883704" data-label="Academy Sports — Further" aria-label="Play Academy Sports — Further">
+              <span class="reel-frame">
+                <img src="images/commercial/academy-sports.jpg" alt="Academy Sports — Further — commercial still" loading="lazy" width="1280" height="720" />
+                <span class="reel-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                </span>
+              </span>
+              <span class="reel-caption">
+                <span class="reel-brand">Academy Sports</span><span class="reel-campaign">Further</span>
+              </span>
+            </button>
+          </li>
+          <li class="reel-item is-more" hidden>
+            <button class="reel-open" type="button" data-vimeo="554243009" data-label="Whole Foods — Food For Our Future" aria-label="Play Whole Foods — Food For Our Future">
+              <span class="reel-frame">
+                <img src="images/commercial/whole-foods.jpg" alt="Whole Foods — Food For Our Future — commercial still" loading="lazy" width="1280" height="720" />
+                <span class="reel-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                </span>
+              </span>
+              <span class="reel-caption">
+                <span class="reel-brand">Whole Foods</span><span class="reel-campaign">Food For Our Future</span>
+              </span>
+            </button>
+          </li>
+          <li class="reel-item is-more" hidden>
+            <button class="reel-open" type="button" data-vimeo="367822805" data-label="IKEA — Play And Study" aria-label="Play IKEA — Play And Study">
+              <span class="reel-frame">
+                <img src="images/commercial/ikea.jpg" alt="IKEA — Play And Study — commercial still" loading="lazy" width="1280" height="720" />
+                <span class="reel-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                </span>
+              </span>
+              <span class="reel-caption">
+                <span class="reel-brand">IKEA</span><span class="reel-campaign">Play And Study</span>
+              </span>
+            </button>
+          </li>
+          <li class="reel-item is-more" hidden>
+            <button class="reel-open" type="button" data-vimeo="215650034" data-label="Toyota — The Boxer" aria-label="Play Toyota — The Boxer">
+              <span class="reel-frame">
+                <img src="images/commercial/toyota.jpg" alt="Toyota — The Boxer — commercial still" loading="lazy" width="1280" height="720" />
+                <span class="reel-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                </span>
+              </span>
+              <span class="reel-caption">
+                <span class="reel-brand">Toyota</span><span class="reel-campaign">The Boxer</span>
+              </span>
+            </button>
+          </li>
+          <li class="reel-item is-more" hidden>
+            <button class="reel-open" type="button" data-vimeo="394209969" data-label="St. Regis — Wonder" aria-label="Play St. Regis — Wonder">
+              <span class="reel-frame">
+                <img src="images/commercial/st-regis.jpg" alt="St. Regis — Wonder — commercial still" loading="lazy" width="1280" height="720" />
+                <span class="reel-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                </span>
+              </span>
+              <span class="reel-caption">
+                <span class="reel-brand">St. Regis</span><span class="reel-campaign">Wonder</span>
+              </span>
+            </button>
+          </li>
+</ul>
+        <div class="reel-more-wrap">
+          <button class="reel-more" type="button" aria-controls="reel-grid">View more<span class="reel-more-count"> — 6 films</span></button>
+        </div>
       </section>
 
       <hr class="rule" />
@@ -555,6 +636,46 @@
         });
       })();
 
+
+      // Commercial reels: progressive reveal
+      (function () {
+        var btn = document.querySelector('.reel-more');
+        var grid = document.getElementById('reel-grid');
+        if (!btn || !grid) return;
+        var STEP = 6;
+        var countEl = btn.querySelector('.reel-more-count');
+
+        function hiddenItems() {
+          return Array.prototype.slice.call(grid.querySelectorAll('.reel-item[hidden]'));
+        }
+
+        function sync() {
+          var left = hiddenItems().length;
+          var wrap = btn.closest('.reel-more-wrap');
+          if (!left) {
+            if (wrap && wrap.parentNode) wrap.parentNode.removeChild(wrap);
+            return;
+          }
+          if (countEl) countEl.textContent = ' — ' + left + (left === 1 ? ' film' : ' films');
+        }
+
+        btn.addEventListener('click', function () {
+          var batch = hiddenItems().slice(0, STEP);
+          batch.forEach(function (li, i) {
+            li.hidden = false;
+            li.classList.add('is-revealed');
+            li.style.animationDelay = (i * 0.05) + 's';
+          });
+          sync();
+          var first = batch[0];
+          if (first) {
+            var target = first.querySelector('.reel-open');
+            if (target) target.focus({ preventScroll: true });
+          }
+        });
+
+        sync();
+      })();
 
       // Commercial reel lightbox
       (function () {
