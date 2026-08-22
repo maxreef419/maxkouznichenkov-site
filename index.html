@@ -396,7 +396,7 @@
           </li>
 </ul>
         <div class="reel-more-wrap">
-          <button class="reel-more" type="button" aria-controls="reel-grid">View more<span class="reel-more-count"> — 6 films</span></button>
+          <button class="reel-more" type="button" aria-controls="reel-grid">View more</button>
         </div>
       </section>
 
@@ -643,7 +643,6 @@
         var grid = document.getElementById('reel-grid');
         if (!btn || !grid) return;
         var STEP = 6;
-        var countEl = btn.querySelector('.reel-more-count');
 
         function hiddenItems() {
           return Array.prototype.slice.call(grid.querySelectorAll('.reel-item[hidden]'));
@@ -656,7 +655,6 @@
             if (wrap && wrap.parentNode) wrap.parentNode.removeChild(wrap);
             return;
           }
-          if (countEl) countEl.textContent = ' — ' + left + (left === 1 ? ' film' : ' films');
         }
 
         btn.addEventListener('click', function () {
@@ -667,11 +665,6 @@
             li.style.animationDelay = (i * 0.05) + 's';
           });
           sync();
-          var first = batch[0];
-          if (first) {
-            var target = first.querySelector('.reel-open');
-            if (target) target.focus({ preventScroll: true });
-          }
         });
 
         sync();
