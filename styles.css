@@ -1518,3 +1518,61 @@ body.no-scroll {
     transform: none;
   }
 }
+
+/* ---------- commercial: view more ---------- */
+.reel-item[hidden] {
+  display: none;
+}
+
+.reel-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(30px, 3.4vw, 52px);
+}
+
+.reel-more {
+  appearance: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 15px 34px;
+  transition: color 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.reel-more:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.reel-more:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.reel-more-count {
+  color: var(--ink-mute);
+}
+
+.reel-more:hover .reel-more-count {
+  color: inherit;
+}
+
+.reel-item.is-revealed {
+  animation: reel-in 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes reel-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-item.is-revealed { animation: none; }
+}
