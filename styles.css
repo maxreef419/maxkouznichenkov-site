@@ -1533,35 +1533,41 @@ body.no-scroll {
 .reel-more {
   appearance: none;
   cursor: pointer;
+  position: relative;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 15px 34px;
-  transition: color 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+  color: var(--ink-mute);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 8px 2px;
+  transition: color 0.22s ease;
+}
+
+.reel-more::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .reel-more:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--ink);
 }
 
 .reel-more:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.reel-more-count {
-  color: var(--ink-mute);
-}
-
-.reel-more:hover .reel-more-count {
-  color: inherit;
+  color: var(--ink);
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
 }
 
 .reel-item.is-revealed {
