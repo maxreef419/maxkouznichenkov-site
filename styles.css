@@ -434,8 +434,8 @@ p {
   margin: 10px 0 0;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 11px 6px 10px;
+  gap: 6px;
+  padding: 4px 12px 4px 8px;
   background: rgba(255, 90, 31, 0.09);
   border: 1px solid rgba(255, 90, 31, 0.28);
   border-radius: 999px;
@@ -452,12 +452,16 @@ p {
   font-weight: 600;
 }
 
-.cinematic-award .award-label::before {
-  content: "★";
+.award-laurel {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 21px;
   color: var(--accent);
-  margin-right: 5px;
-  font-size: 11px;
-  vertical-align: 1px;
+  overflow: visible;
+}
+
+.award-laurel-r {
+  transform: scaleX(-1);
 }
 
 .cinematic-award .award-fest {
@@ -465,7 +469,8 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 10px;
-  padding-left: 8px;
+  padding-left: 9px;
+  margin-left: 2px;
   border-left: 1px solid rgba(255, 90, 31, 0.35);
 }
 
