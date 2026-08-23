@@ -434,8 +434,8 @@ p {
   margin: 10px 0 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 12px 4px 8px;
+  gap: 8px;
+  padding: 4px 13px 4px 9px;
   background: rgba(255, 90, 31, 0.09);
   border: 1px solid rgba(255, 90, 31, 0.28);
   border-radius: 999px;
@@ -454,14 +454,10 @@ p {
 
 .award-laurel {
   flex: 0 0 auto;
-  width: 10px;
-  height: 21px;
+  width: 25px;
+  height: 23px;
   color: var(--accent);
   overflow: visible;
-}
-
-.award-laurel-r {
-  transform: scaleX(-1);
 }
 
 .cinematic-award .award-fest {
