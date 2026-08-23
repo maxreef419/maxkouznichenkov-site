@@ -431,44 +431,63 @@ p {
 
 /* Award pill — tightly attached to caption */
 .cinematic-award {
-  margin: 10px 0 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 13px 4px 9px;
-  background: rgba(255, 90, 31, 0.09);
-  border: 1px solid rgba(255, 90, 31, 0.28);
-  border-radius: 999px;
-  font-family: var(--font-body);
-  font-size: 11.5px;
-  line-height: 1;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  max-width: 100%;
-}
-
-.cinematic-award .award-label {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.award-laurel {
-  flex: 0 0 auto;
-  width: 25px;
-  height: 23px;
+  position: relative;
+  display: inline-block;
+  width: 174px;
+  height: 88px;
+  margin: 12px 0 0;
   color: var(--accent);
-  overflow: visible;
 }
 
-.cinematic-award .award-fest {
-  color: var(--ink-mute);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 10px;
-  padding-left: 9px;
-  margin-left: 2px;
-  border-left: 1px solid rgba(255, 90, 31, 0.35);
+.award-wreath {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
+
+.award-text {
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.award-stars {
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.award-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.award-fest {
+  margin-top: 2px;
+  font-size: 7.6px;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
 
 /* Large editorial section number — own line, accent color */
 .section-num {
