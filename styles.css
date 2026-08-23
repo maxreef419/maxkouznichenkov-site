@@ -575,6 +575,10 @@ p {
   align-items: baseline;
 }
 
+.service-list li:last-child {
+  border-bottom: 0;
+}
+
 .service-num {
   font-family: var(--font-body);
   font-weight: 700;
