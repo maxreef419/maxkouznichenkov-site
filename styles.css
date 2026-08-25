@@ -433,8 +433,8 @@ p {
 .cinematic-award {
   position: relative;
   display: inline-block;
-  width: 148px;
-  height: 88px;
+  width: 172px;
+  height: 91px;
   margin: 14px 0 0;
   color: var(--accent);
 }
@@ -448,8 +448,8 @@ p {
 
 .award-text {
   position: absolute;
-  left: 5%;
-  right: 5%;
+  left: 20%;
+  right: 20%;
   top: 0;
   bottom: 0;
   display: flex;
@@ -462,7 +462,7 @@ p {
 }
 
 .award-stars {
-  font-size: 8.5px;
+  font-size: 8px;
   letter-spacing: 0.2em;
   line-height: 1;
   color: var(--accent);
