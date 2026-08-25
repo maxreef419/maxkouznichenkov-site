@@ -1536,8 +1536,23 @@ body.no-scroll {
 }
 
 @media (max-width: 720px) {
+  /* на телефоне из шапки остаётся только переключатель языка —
+     стоит слева от бургера, остальные ссылки уезжают в меню */
   .site-header nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-left: auto;
+  }
+
+  .site-header nav > a:not(.lang-switch),
+  .site-header nav .social-icon {
     display: none;
+  }
+
+  .site-header nav a.lang-switch {
+    margin: 0 18px 0 0;
+    font-size: 12px;
   }
 
   .nav-toggle {
@@ -1645,6 +1660,7 @@ body.no-scroll {
   color: var(--accent);
 }
 
+/* блок оставлен на случай возврата: язык теперь в шапке */
 .mobile-nav-lang {
   margin-top: clamp(24px, 6vw, 36px);
   font-family: var(--font-body);
