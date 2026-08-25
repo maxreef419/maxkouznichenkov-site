@@ -406,11 +406,22 @@ p {
 .cinematic-cast {
   font-family: var(--font-body);
   font-size: 11.5px;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--ink-mute);
   opacity: 0.72;
-  margin: 5px 0 0;
+  margin: 7px 0 0;
   letter-spacing: 0.015em;
+}
+
+/* моя роль в проекте — тише состава, но тоном ближе к основному тексту */
+.cinematic-credit {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  line-height: 1.5;
+  letter-spacing: 0.015em;
+  color: var(--ink);
+  opacity: 0.62;
+  margin: 6px 0 0;
 }
 
 /* Award badge on poster */
