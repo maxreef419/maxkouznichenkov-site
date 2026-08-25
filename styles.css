@@ -429,14 +429,14 @@ p {
   display: block;
 }
 
-/* Award pill — tightly attached to caption, centred in the poster column */
+/* Award pill — tightly attached to caption, flush left with it */
 .cinematic-award {
   position: relative;
   display: block;
   width: 118px;
   /* пропорция = viewBox лавра, иначе венок растягивается по горизонтали */
   aspect-ratio: 155.5 / 94.9;
-  margin: 12px auto 2px;
+  margin: 12px 0 2px;
   color: var(--accent);
 }
 
