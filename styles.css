@@ -429,14 +429,14 @@ p {
   display: block;
 }
 
-/* Award pill — tightly attached to caption */
+/* Award pill — tightly attached to caption, centred in the poster column */
 .cinematic-award {
   position: relative;
-  display: inline-block;
-  width: 150px;
+  display: block;
+  width: 118px;
   /* пропорция = viewBox лавра, иначе венок растягивается по горизонтали */
   aspect-ratio: 155.5 / 94.9;
-  margin: 18px 0 2px;
+  margin: 12px auto 2px;
   color: var(--accent);
 }
 
@@ -463,7 +463,7 @@ p {
 }
 
 .award-name {
-  font-size: 12.5px;
+  font-size: 11px;
   font-weight: 700;
   line-height: 1.16;
   letter-spacing: 0.02em;
@@ -473,8 +473,8 @@ p {
 }
 
 .award-fest {
-  margin-top: 5px;
-  font-size: 9.5px;
+  margin-top: 4px;
+  font-size: 8.5px;
   font-weight: 600;
   letter-spacing: 0.15em;
   line-height: 1;
@@ -1666,7 +1666,7 @@ body.no-scroll {
 
 /* награда: русский текст в три строки */
 html[lang='ru'] .award-name {
-  font-size: 10.5px;
+  font-size: 9.2px;
   line-height: 1.2;
   letter-spacing: 0.01em;
 }
