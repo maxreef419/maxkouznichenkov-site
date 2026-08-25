@@ -1459,14 +1459,17 @@ body.no-scroll {
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
 }
 
 .mobile-nav-links a {
   display: flex;
   align-items: baseline;
   gap: 14px;
-  padding: 10px 0;
+  /* gap у списка обнулён, отступы подобраны так, чтобы просвет
+     от линейки до верха прописных равнялся просвету от базовой
+     до следующей линейки (проверено на 430/390/320) */
+  padding: 13px 0 12px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(25px, 7.4vw, 38px);
