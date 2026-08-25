@@ -1695,14 +1695,11 @@ html[lang='ru'] #about-h {
   line-height: 1.12;
 }
 
-/* «СДЕЛАЕМ ЧТО-ТО» на телефоне не влезает и рвётся по дефису —
-   там финал идёт в четыре строки, на широких экранах — в три. */
-.br-mob {
-  display: none;
-}
-@media (max-width: 720px) {
-  .br-mob {
-    display: inline;
+/* На 320px самая длинная строка героя «И МУЗЫКАЛЬНЫЙ»
+   выходит за поле вёрстки на 20px. */
+@media (max-width: 340px) {
+  html[lang='ru'] .hero-title .accent {
+    font-size: 29px;
   }
 }
 
