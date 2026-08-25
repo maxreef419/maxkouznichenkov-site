@@ -1669,18 +1669,6 @@ html[lang='ru'] .hero-title {
   letter-spacing: -0.03em;
 }
 
-/* русская подпись + оригинальное название */
-.cinematic-alt {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.3;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin: 3px 0 0;
-}
-
 /* награда: русский текст в три строки */
 html[lang='ru'] .award-name {
   font-size: 9.5px;
