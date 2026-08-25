@@ -402,6 +402,17 @@ p {
   letter-spacing: 0.02em;
 }
 
+/* состав: мельче подписи и светлее, чтобы не спорить с названием */
+.cinematic-cast {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ink-mute);
+  opacity: 0.72;
+  margin: 5px 0 0;
+  letter-spacing: 0.015em;
+}
+
 /* Award badge on poster */
 .poster-badge {
   position: absolute;
