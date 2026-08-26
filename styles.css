@@ -419,37 +419,20 @@ p {
   font-size: 11.5px;
   line-height: 1.5;
   letter-spacing: 0.015em;
-  color: var(--ink);
-  opacity: 0.62;
+  color: rgba(17, 17, 17, 0.62);
   margin: 6px 0 0;
 }
 
-/* Награда — одна строка под подписью: без рамок, плашек и лавров */
-.cinematic-award {
-  display: block;
-  margin: 18px 0 0;
-  font-family: var(--font-body);
-  font-size: 10.8px;
-  line-height: 1.35;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
+/* Награда — внутри строки роли: акцент только на названии премии */
 .award-fest {
   font-weight: 700;
   color: var(--accent);
+  letter-spacing: 0.03em;
 }
 
 .award-sep {
-  color: var(--ink);
-  opacity: 0.4;
+  color: rgba(17, 17, 17, 0.34);
   padding: 0 1px;
-}
-
-.award-name {
-  font-weight: 500;
-  color: var(--ink);
-  opacity: 0.78;
 }
 
 
@@ -1651,11 +1634,6 @@ body.no-scroll {
    Geologica несёт и латиницу, и кириллицу, поэтому отдельный
    display-шрифт и собственная типографическая шкала больше не нужны.
    Осталось только то, что связано с длиной русских слов. */
-
-/* награда: кириллица длиннее — чуть плотнее трекинг */
-html[lang='ru'] .cinematic-award {
-  letter-spacing: 0.015em;
-}
 
 /* Типографическая шкала и трекинг — общие с английской версией.
 
