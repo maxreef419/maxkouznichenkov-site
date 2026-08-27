@@ -3,14 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PMTQL9HC13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PMTQL9HC13');
-</script>
     <title>Max Kouznichenkov — Composer &amp; Music Partner</title>
     <meta
       name="description"
@@ -501,12 +493,14 @@
             teams.
           </p>
           <p>
-            In film, I see music as part of the storytelling. I look for what a
-            scene needs to feel like, and for the detail that can become part
-            of a character &mdash; a theme, a texture, a single musical
-            gesture. Commercial production taught me to do that fast: to work
-            with a picture that keeps changing, make decisions without endless
-            rounds, and never let the deadline show in the work.
+            In film, I build the musical language of a story as a system &mdash;
+            using themes, timbres and motifs that connect its characters,
+            relationships and world.
+          </p>
+          <p>
+            Commercial production taught me to do this fast: adapt to evolving
+            cuts, make decisions without unnecessary iterations, and maintain
+            a high standard under tight deadlines.
           </p>
           <p>
             I lead the music side of a project end to end, from defining the
@@ -807,35 +801,6 @@
             ticking = true;
           }
         }, { passive: true });
-      })();
-    </script>
-      <!-- GA4: contact and outbound intent tracking -->
-    <script>
-      (function () {
-        document.addEventListener('click', function (e) {
-          var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
-          if (!a || typeof gtag !== 'function') return;
-          var href = a.getAttribute('href') || '';
-          if (href.indexOf('mailto:') === 0) {
-            gtag('event', 'contact_click', {
-              method: 'email',
-              link_url: href.replace('mailto:', ''),
-              page_language: document.documentElement.lang || 'en'
-            });
-            return;
-          }
-          if (/^https?:\/\//i.test(href)) {
-            var host = '';
-            try { host = new URL(href).hostname.replace(/^www\./, ''); } catch (err) { return; }
-            if (host === location.hostname.replace(/^www\./, '')) return;
-            gtag('event', 'outbound_click', {
-              link_domain: host,
-              link_url: href,
-              link_text: (a.textContent || '').trim().slice(0, 60),
-              page_language: document.documentElement.lang || 'en'
-            });
-          }
-        }, true);
       })();
     </script>
   </body>
