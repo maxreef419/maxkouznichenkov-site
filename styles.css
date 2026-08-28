@@ -1896,3 +1896,60 @@ body::after {
   opacity: 0.022;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+
+/* ═══ TYPE COMPACTION — 2026-08-28 ═══
+   Тело набора собраннее и мельче: тот же Inter, меньше кегль,
+   плотнее интерлиньяж, короче межабзацные отбивки.
+   Откат = удалить этот блок. */
+
+:root {
+  --text-xs: 10.5px;
+  --text-sm: 11.5px;
+  --text-base: 15px;
+  --text-md: 15px;
+  --text-lg: 17px;
+}
+
+body {
+  line-height: 1.45;
+}
+
+.hero-lede {
+  line-height: 1.4;
+  max-width: 40ch;
+}
+
+.prose p {
+  line-height: 1.5;
+  margin-bottom: 1.25em;
+  max-width: 640px;
+}
+
+.client-list {
+  line-height: 1.68;
+}
+
+.service-body {
+  line-height: 1.45;
+}
+
+.cinematic-cast {
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --text-base: 14.5px;
+    --text-md: 14.5px;
+    --text-lg: 15.5px;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  .prose p {
+    line-height: 1.55;
+  }
+}
