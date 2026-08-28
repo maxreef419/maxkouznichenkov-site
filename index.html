@@ -161,6 +161,7 @@
         </a>
         <a href="/ru/" class="lang-switch" hreflang="ru" aria-label="Перейти на русскую версию"><span class="lang-cur">EN</span><span class="lang-sep">/</span><span class="lang-alt">RU</span></a>
       </nav>
+      <a href="#contact" class="header-cta">Contact</a>
       <button
         class="nav-toggle"
         type="button"
@@ -215,7 +216,6 @@
             <img src="images/max-portrait.jpg" alt="" loading="eager" />
           </figure>
 
-          <div class="scroll-cue" aria-hidden="true"><span class="scroll-cue-word">Scroll</span><span class="scroll-cue-line"></span></div>
         </div>
       </section>
 
@@ -225,6 +225,7 @@
       <section id="film" class="cinematic reveal" aria-labelledby="cinematic-h">
         <p class="section-num">01</p>
         <h2 id="cinematic-h" class="section-display">FILM.</h2>
+        <p class="section-context">Series &middot; Short film &middot; Original score</p>
 
         <ul class="cinematic-grid" role="list">
           <li class="cinematic-item">
@@ -301,6 +302,7 @@
       <section id="commercial" class="cinematic commercial reveal" aria-labelledby="commercial-h">
         <p class="section-num">02</p>
         <h2 id="commercial-h" class="section-display">COMMERCIAL.</h2>
+        <p class="section-context">Advertising &middot; Branded content &middot; Sonic branding</p>
 
         <ul class="reel-grid" id="reel-grid" role="list">
           <li class="reel-item">
@@ -465,7 +467,12 @@
         </div>
       </section>
 
-      <hr class="rule" />
+      <section class="statement reveal" aria-label="Principle">
+        <div class="statement-inner">
+          <p class="statement-label">Principle</p>
+          <p class="statement-line">Music that carries the story &mdash; not the deadline.</p>
+        </div>
+      </section>
 
       <!-- 03. ABOUT -->
       <section id="about" class="about reveal" aria-labelledby="about-h">
@@ -564,6 +571,7 @@
       <section id="clients" class="clients reveal" aria-labelledby="clients-h">
         <p class="section-num">05</p>
         <h2 id="clients-h" class="section-display">TRUSTED<br />BY.</h2>
+        <p class="section-context">Selected &middot; Direct and through agencies</p>
 
         <div class="clients-grid">
           <div>
@@ -705,6 +713,30 @@
         document.querySelectorAll('.reveal').forEach(function (el) {
           io.observe(el);
         });
+
+        /* подстраховка: если наблюдатель не сработал, открываем всё, что уже в кадре */
+        function sweep() {
+          document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+            if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+              el.classList.add('is-visible');
+            }
+          });
+        }
+        window.addEventListener('load', function () { setTimeout(sweep, 900); });
+        setTimeout(sweep, 2400);
+      })();
+
+      /* состояние прокрутки для шапки (мобильный CTA) */
+      (function () {
+        var t = false;
+        function sync() {
+          document.documentElement.classList.toggle('is-scrolled', window.scrollY > 120);
+          t = false;
+        }
+        window.addEventListener('scroll', function () {
+          if (!t) { t = true; window.requestAnimationFrame(sync); }
+        }, { passive: true });
+        sync();
       })();
 
 
@@ -807,20 +839,6 @@
         }, { passive: true });
       })();
 
-      /* scroll cue — гаснет после первого скролла */
-      (function () {
-        var cue = document.querySelector('.scroll-cue');
-        if (!cue) return;
-        function sync() {
-          if (window.scrollY > 60) {
-            cue.classList.add('is-hidden');
-          } else {
-            cue.classList.remove('is-hidden');
-          }
-        }
-        window.addEventListener('scroll', sync, { passive: true });
-        sync();
-      })();
     </script>
   </body>
 </html>
