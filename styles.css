@@ -1687,7 +1687,6 @@ html[lang='ru'] .contact-headline {
 .service-num,
 .meta-type,
 .cinematic-credit,
-.section-context,
 .header-cta {
   font-family: var(--font-mono);
   font-weight: 500;
@@ -1850,26 +1849,6 @@ html[lang='ru'] .contact-headline {
 /* ═══ REFINEMENT PASS II — 2026-08-28 ═══════════════════════════════
    Убрать целиком, чтобы откатить: моно-строки контекста, строка-заявление,
    мобильный CTA в шапке, плёночное зерно. */
-
-/* ---- 6. моно-строка контекста под заголовком секции ---- */
-.section-context {
-  font-size: 11px;
-  letter-spacing: 0.07em;
-  color: var(--ink-mute);
-  margin: 0 0 clamp(40px, 5vw, 72px);
-}
-
-/* строка контекста прижимается к заголовку: гасим его нижний отступ */
-.section-display:has(+ .section-context) {
-  margin-bottom: clamp(16px, 2vw, 26px);
-}
-
-/* запас для браузеров без :has() */
-@supports not selector(:has(*)) {
-  .section-context {
-    margin-top: calc(-1 * clamp(40px, 5vw, 72px));
-  }
-}
 
 /* ---- 8. мобильный CTA в шапке ---- */
 .header-cta {
