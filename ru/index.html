@@ -43,7 +43,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
@@ -214,6 +214,8 @@
           <figure class="hero-portrait" aria-hidden="true">
             <img src="/images/max-portrait.jpg" alt="" loading="eager" />
           </figure>
+
+          <div class="scroll-cue" aria-hidden="true"><span class="scroll-cue-word">Скролл</span><span class="scroll-cue-line"></span></div>
         </div>
       </section>
 
@@ -232,7 +234,7 @@
               </div>
               <figcaption>
                 <p class="cinematic-title">Плейлист волонтёра</p>
-                <p class="cinematic-meta">Сериал<br />Vita Aktiva для Okko</p>
+                <p class="cinematic-meta"><span class="meta-type">Сериал</span><br />Vita Aktiva для Okko</p>
                 <p class="cinematic-cast">В ролях: Иван Янковский, Александра Урсуляк, Дмитрий Чеботарёв, Шамиль Хаматов, Мила Ершова</p>
                 <p class="cinematic-credit">Оригинальная музыка <span class="award-sep" aria-hidden="true">&middot;</span> Награда <span class="award-fest">ORIGINAL+</span> за лучшую музыку</p>
               </figcaption>
@@ -245,7 +247,7 @@
               </div>
               <figcaption>
                 <p class="cinematic-title">Прометей</p>
-                <p class="cinematic-meta">Сериал<br />&laquo;Централ Партнершип&raquo; и продюсерский центр &laquo;ГОРАД&raquo; для Кинопоиска</p>
+                <p class="cinematic-meta"><span class="meta-type">Сериал</span><br />&laquo;Централ Партнершип&raquo; и продюсерский центр &laquo;ГОРАД&raquo; для Кинопоиска</p>
                 <p class="cinematic-cast">В ролях: Филипп Янковский, Любовь Аксёнова, Дмитрий Чеботарёв, Игорь Гордин</p>
                 <p class="cinematic-credit">Оригинальная музыка</p>
               </figcaption>
@@ -258,7 +260,7 @@
               </div>
               <figcaption>
                 <p class="cinematic-title">Полураспад</p>
-                <p class="cinematic-meta">Сериал<br />&laquo;Среда&raquo; для Okko</p>
+                <p class="cinematic-meta"><span class="meta-type">Сериал</span><br />&laquo;Среда&raquo; для Okko</p>
                 <p class="cinematic-cast">В ролях: Анна Михалкова, Филипп Янковский, Евгений Стычкин, Сергей Шакуров, Егор Корешков</p>
                 <p class="cinematic-credit">Оригинальная музыка</p>
               </figcaption>
@@ -271,7 +273,7 @@
               </div>
               <figcaption>
                 <p class="cinematic-title">Вегетация</p>
-                <p class="cinematic-meta">Сериал<br />&laquo;Среда&raquo; для Okko</p>
+                <p class="cinematic-meta"><span class="meta-type">Сериал</span><br />&laquo;Среда&raquo; для Okko</p>
                 <p class="cinematic-cast">В ролях: Алексей Серебряков, Юрий Быков, Александра Урсуляк, Егор Корешков, Ксения Трейстер</p>
                 <p class="cinematic-credit">Оригинальная музыка</p>
               </figcaption>
@@ -284,7 +286,7 @@
               </div>
               <figcaption>
                 <p class="cinematic-title">Прометей</p>
-                <p class="cinematic-meta">Короткометражный фильм<br />Instinct для IKEA</p>
+                <p class="cinematic-meta"><span class="meta-type">Короткий метр</span><br />Instinct для IKEA</p>
                 <p class="cinematic-cast">Режиссёр: Валерия Гай Германика<br />В ролях: Андрей Чадов, Надежда Сысоева</p>
                 <p class="cinematic-credit">Оригинальная музыка, музыкальное продюсирование</p>
               </figcaption>
@@ -467,8 +469,11 @@
 
       <!-- 03. ABOUT -->
       <section id="about" class="about reveal" aria-labelledby="about-h">
+        <div class="about-grid">
+          <div class="about-head">
         <p class="section-num">03</p>
         <h2 id="about-h" class="section-display">ОПЫТ<br />И ПОДХОД.</h2>
+          </div>
         <div class="prose">
           <p>
             Я пишу и продюсирую музыку для кино, сериалов, рекламы и
@@ -509,6 +514,7 @@
             Если есть проект или идея, которым нужны оригинальная музыка
             и собственное звучание &mdash; напишите мне.
           </p>
+        </div>
         </div>
       </section>
 
@@ -796,6 +802,21 @@
             ticking = true;
           }
         }, { passive: true });
+      })();
+
+      /* scroll cue — гаснет после первого скролла */
+      (function () {
+        var cue = document.querySelector('.scroll-cue');
+        if (!cue) return;
+        function sync() {
+          if (window.scrollY > 60) {
+            cue.classList.add('is-hidden');
+          } else {
+            cue.classList.remove('is-hidden');
+          }
+        }
+        window.addEventListener('scroll', sync, { passive: true });
+        sync();
       })();
     </script>
   </body>
