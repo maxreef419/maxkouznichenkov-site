@@ -1669,3 +1669,216 @@ html[lang='ru'] .contact-headline {
     font-size: 23px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   REFINEMENT PASS — 2026-08-28
+   Моно-слой микротипографики, scroll cue, hover строк услуг,
+   sticky-заголовок в 03, горизонтальная лента постеров на мобильном.
+   Блок автономный: удаление всего блока = полный откат стилей.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+/* ---- 1. моно-слой: только лейблы и служебные строки ---- */
+.eyebrow,
+.micro-label,
+.service-num,
+.meta-type,
+.cinematic-credit,
+.scroll-cue-word {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-size: 11.5px;
+}
+
+.micro-label {
+  font-size: 11.5px;
+}
+
+.service-num {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.meta-type {
+  display: inline-block;
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  color: var(--ink);
+  margin-bottom: 1px;
+}
+
+.cinematic-credit {
+  font-size: 10.5px;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: rgba(17, 17, 17, 0.68);
+  margin-top: 8px;
+}
+
+/* ---- 2. scroll cue ---- */
+.hero-inner {
+  position: relative;
+}
+
+.scroll-cue {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-cue.is-hidden {
+  opacity: 0;
+}
+
+.scroll-cue-word {
+  font-size: 10px;
+  color: var(--ink-mute);
+}
+
+.scroll-cue-line {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--ink-mute), rgba(138, 133, 128, 0));
+}
+
+/* ---- 3. hover строк в списке услуг ---- */
+.service-list li {
+  position: relative;
+  padding-left: 0;
+}
+
+.service-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: clamp(30px, 3.4vw, 46px);
+  bottom: clamp(30px, 3.4vw, 46px);
+  width: 1px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .service-list li {
+    transition: color 0.35s ease, padding-left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .service-list li:hover {
+    padding-left: 14px;
+  }
+
+  .service-list li:hover::before {
+    opacity: 1;
+  }
+}
+
+/* ---- 4. sticky-заголовок в 03 ---- */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: clamp(32px, 4.5vw, 64px);
+  align-items: start;
+}
+
+.about-head {
+  position: sticky;
+  top: calc(clamp(72px, 8vw, 88px) + 24px);
+}
+
+.about-head .section-num,
+.about-head .section-display {
+  margin-bottom: 0;
+}
+
+.about-head .section-num {
+  margin-bottom: clamp(8px, 1.2vw, 20px);
+}
+
+.about .prose {
+  max-width: 62ch;
+}
+
+.about .prose p {
+  max-width: none;
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(28px, 4vw, 44px);
+  }
+
+  .about-head {
+    position: static;
+  }
+}
+
+/* ---- 5. горизонтальная лента постеров на мобильном ---- */
+@media (max-width: 720px) {
+  .cinematic-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+    -webkit-overflow-scrolling: touch;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    padding-bottom: 14px;
+    scrollbar-width: thin;
+  }
+
+  .cinematic-grid::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .cinematic-grid::-webkit-scrollbar-track {
+    background: rgba(17, 17, 17, 0.06);
+    border-radius: 999px;
+  }
+
+  .cinematic-grid::-webkit-scrollbar-thumb {
+    background: rgba(17, 17, 17, 0.22);
+    border-radius: 999px;
+  }
+
+  .cinematic-item {
+    flex: 0 0 64vw;
+    scroll-snap-align: start;
+  }
+
+  .cinematic-item .poster {
+    max-width: none;
+    margin: 0;
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue,
+  .service-list li,
+  .service-list li::before {
+    transition: none !important;
+  }
+}
