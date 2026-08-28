@@ -1905,9 +1905,9 @@ body::after {
 :root {
   --text-xs: 10.5px;
   --text-sm: 11.5px;
-  --text-base: 15px;
-  --text-md: 15px;
-  --text-lg: 17px;
+  --text-base: 14px;
+  --text-md: 14px;
+  --text-lg: 16px;
 }
 
 body {
@@ -1921,8 +1921,13 @@ body {
 
 .prose p {
   line-height: 1.5;
-  margin-bottom: 1.25em;
-  max-width: 640px;
+  margin-bottom: 1.3em;
+  max-width: 31em;
+}
+
+/* перебиваем .about .prose p { max-width: none } — специфичность выше */
+.about .prose p {
+  max-width: 31em;
 }
 
 .client-list {
@@ -1940,9 +1945,9 @@ body {
 
 @media (max-width: 720px) {
   :root {
-    --text-base: 14.5px;
-    --text-md: 14.5px;
-    --text-lg: 15.5px;
+    --text-base: 14px;
+    --text-md: 14px;
+    --text-lg: 15px;
   }
 
   body {
