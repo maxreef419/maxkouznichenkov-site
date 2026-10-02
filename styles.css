@@ -1512,6 +1512,29 @@ body.no-scroll {
   }
 }
 
+
+/* ---------- mobile menu polish — 2026-10-02 ---------- */
+@media (max-width: 720px) {
+  .mobile-nav {
+    justify-content: flex-start;
+    padding: clamp(142px, 20vh, 188px) var(--gutter) 32px;
+  }
+
+  .mobile-nav-links a {
+    padding: 12px 0 13px;
+  }
+
+  .mobile-nav-foot {
+    margin-top: 30px;
+  }
+
+  /* Keep the open-menu header quiet: wordmark + close only. */
+  body.no-scroll .site-header nav,
+  body.no-scroll .site-header .header-cta {
+    display: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mobile-nav,
   .mobile-nav-foot,
