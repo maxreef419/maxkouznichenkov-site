@@ -2117,3 +2117,11 @@ body {
     max-width: 16ch;
   }
 }
+
+
+/* ---------- About portrait title weight — 2026-10-07 ---------- */
+@media (max-width: 720px) and (orientation: portrait) {
+  .about-page .services .service-title {
+    font-weight: 600;
+  }
+}
