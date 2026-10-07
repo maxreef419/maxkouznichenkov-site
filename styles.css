@@ -1981,3 +1981,30 @@ body {
     line-height: 1.55;
   }
 }
+
+
+/* ---------- numbering hierarchy — 2026-10-07 ---------- */
+/* Numbers belong to the homepage sections only. Menus use typography + rules. */
+.mobile-nav-links a {
+  gap: 0;
+}
+
+.mobile-nav-links a[aria-current="page"] {
+  color: var(--accent);
+}
+
+/* About-page capability rows no longer reserve a number column. */
+.service-list li {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+}
+
+@media (max-width: 960px) {
+  .service-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px 0;
+  }
+
+  .service-list li .service-body {
+    grid-column: auto;
+  }
+}
