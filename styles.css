@@ -2102,3 +2102,18 @@ body {
     color: #56524d;
   }
 }
+
+
+/* ---------- About portrait type scale — 2026-10-07 ---------- */
+@media (max-width: 720px) and (orientation: portrait) {
+  .about-page .section-display {
+    font-size: clamp(30px, 8.2vw, 36px);
+    line-height: 0.94;
+  }
+
+  .about-page .services .service-title {
+    font-size: clamp(23px, 6.7vw, 28px);
+    line-height: 1.02;
+    max-width: 16ch;
+  }
+}
