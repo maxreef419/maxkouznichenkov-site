@@ -2008,3 +2008,36 @@ body {
     grid-column: auto;
   }
 }
+
+
+/* ---------- About mobile layout hardening — 2026-10-07 ---------- */
+@media (max-width: 960px) {
+  .services .service-list li {
+    display: block;
+    padding: clamp(28px, 7vw, 40px) 0;
+  }
+
+  .services .service-title {
+    display: block;
+    margin: 0 0 14px;
+    max-width: 14ch;
+  }
+
+  .services .service-body {
+    display: block;
+    margin: 0;
+    max-width: 36ch;
+  }
+}
+
+@media (max-width: 720px) {
+  .services .service-title {
+    font-size: clamp(26px, 8vw, 34px);
+    line-height: 0.98;
+  }
+
+  .services .service-body {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
