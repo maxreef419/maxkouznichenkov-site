@@ -2041,3 +2041,64 @@ body {
     line-height: 1.55;
   }
 }
+
+
+/* ═══ ABOUT ART DIRECTION — 2026-10-07 ═════════════════════════════
+   Softer hierarchy: charcoal display type, lighter service titles,
+   warmer body copy, small orange editorial marks. Homepage untouched. */
+
+.about-page .section-display {
+  color: #1b1a19;
+  font-weight: 800;
+}
+
+.about-page .about .prose p {
+  color: #3f3d3a;
+}
+
+.about-page .services .service-list {
+  border-top-color: #ded8d0;
+}
+
+.about-page .services .service-list li {
+  border-bottom-color: #ded8d0;
+}
+
+.about-page .services .service-title {
+  color: #2f2d2a;
+  font-weight: 700;
+}
+
+.about-page .services .service-title::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 0 0 14px;
+  background: var(--accent);
+}
+
+.about-page .services .service-body {
+  color: #595550;
+}
+
+@media (max-width: 720px) {
+  .about-page .section-display {
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+
+  .about-page .services .service-title {
+    font-weight: 700;
+    color: #302e2b;
+  }
+
+  .about-page .services .service-title::before {
+    width: 22px;
+    margin-bottom: 12px;
+  }
+
+  .about-page .services .service-body {
+    color: #56524d;
+  }
+}
