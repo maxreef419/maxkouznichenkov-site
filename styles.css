@@ -780,24 +780,6 @@ p {
 
 /* ---------- REVEAL ANIMATION ---------- */
 /* Content stays visible if JavaScript is unavailable. */
-.motion-ready {
-  transition: opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
-              transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--motion-delay, 0ms);
-}
-.motion-ready.motion-pending {
-  opacity: 0;
-  transform: translateY(18px);
-}
-.motion-ready:not(.motion-pending) {
-  opacity: 1;
-  transform: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .motion-ready.motion-pending { opacity: 1; transform: none; }
-  .motion-ready { transition: none; }
-}
-
 /* Subtle hover — single color shift, no movement */
 .service-list li,
 .why-list li,
@@ -2097,28 +2079,60 @@ body {
   }
 }
 
-/* A clear, quiet social sign-off on the standalone About pages. */
+/* Social links belong to the footer, on the same content grid. */
+.about-page .services { padding-bottom: clamp(48px, 7vw, 88px); }
+.about-page .site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 28px;
+  padding-top: 32px;
+}
 .about-socials {
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px 36px;
-  margin-top: clamp(40px, 6vw, 80px);
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
+  gap: 8px 28px;
+  margin: 0;
+  padding: 0;
 }
 .about-socials a {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 7px;
   min-height: 44px;
   color: var(--ink-soft);
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 400;
-  transition: color 200ms ease;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  transition: color 250ms ease;
 }
-.about-socials a span { color: var(--accent); }
+.about-socials svg { flex: none; opacity: 0.65; }
 .about-socials a:hover { color: var(--accent); }
 .about-socials a:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 6px;
+  outline-offset: 4px;
+}
+@media (max-width: 720px) {
+  .about-page .site-footer { grid-template-columns: 1fr; row-gap: 20px; }
+}
+
+/* Slow acceleration and a short travel keep entrances understated. */
+.motion-ready,
+.service-list > .motion-ready {
+  transition: opacity 1400ms cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 1600ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-delay: var(--motion-delay, 0ms);
+}
+.motion-ready.motion-pending {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.motion-ready:not(.motion-pending) {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready.motion-pending { opacity: 1; transform: none; }
+  .motion-ready, .service-list > .motion-ready { transition: none; }
 }

@@ -19,9 +19,9 @@
         a.boundingClientRect.left - b.boundingClientRect.left;
     });
     visible.forEach(function (entry, index) {
-      show(entry.target, Math.min(index, 2) * 65);
+      show(entry.target, Math.min(index, 2) * 120);
     });
-  }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+  }, { threshold: 0.025, rootMargin: '0px' });
 
   function show(item, delay) {
     item.style.setProperty('--motion-delay', delay + 'ms');
