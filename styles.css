@@ -2112,12 +2112,54 @@ body {
   .motion-ready, .service-list > .motion-ready { transition: none; }
 }
 
-/* Fit the complete poster artwork into the shared 27:40 card frame. */
+/* Keep the shared card size while preserving the poster's original proportions. */
+.poster--poluraspad {
+  display: flex;
+  align-items: center;
+}
+
+.poster--poluraspad::before,
+.poster--poluraspad::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-image: url("/images/cinematic/poluraspad-extension-20261025.webp");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.poster--poluraspad::before {
+  top: 0;
+  background-position: center top;
+}
+
+.poster--poluraspad::after {
+  bottom: 0;
+  background-position: center bottom;
+}
+
+.poster--poluraspad .poster-artwork {
+  position: relative;
+  z-index: 1;
+  display: block;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 1320 / 1814;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, #000 1.6%, #000 98.4%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 1.6%, #000 98.4%, transparent);
+}
+
 .poster--poluraspad img {
   position: absolute;
   top: -14.4432194046%;
   left: 0;
   width: 100%;
-  height: 143.4950385888%;
-  object-fit: fill;
+  height: auto;
+}
+
+.cinematic-item:hover .poster--poluraspad img {
+  transform: none;
 }
