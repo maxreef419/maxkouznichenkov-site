@@ -2112,14 +2112,12 @@ body {
   .motion-ready, .service-list > .motion-ready { transition: none; }
 }
 
-/* Show only the original poster artwork (y=262..2075), without resampling. */
-.poster--poluraspad {
-  aspect-ratio: 1320 / 1814;
-}
-
+/* Fit the complete poster artwork into the shared 27:40 card frame. */
 .poster--poluraspad img {
   position: absolute;
   top: -14.4432194046%;
   left: 0;
-  height: auto;
+  width: 100%;
+  height: 143.4950385888%;
+  object-fit: fill;
 }
