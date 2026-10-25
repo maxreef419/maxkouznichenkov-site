@@ -2137,7 +2137,8 @@ body {
 
 .poster--poluraspad::after {
   bottom: 0;
-  background-position: center bottom;
+  background-image: url("/images/cinematic/poluraspad-figures-extension-20261025.webp");
+  background-position: center 86%;
 }
 
 .poster--poluraspad .poster-artwork {
@@ -2148,8 +2149,8 @@ body {
   width: 100%;
   aspect-ratio: 1320 / 1814;
   overflow: hidden;
-  mask-image: linear-gradient(to bottom, transparent, #000 1.6%, #000 98.4%, transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 1.6%, #000 98.4%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 1.6%, #000 99.2%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 1.6%, #000 99.2%, transparent);
 }
 
 .poster--poluraspad img {
