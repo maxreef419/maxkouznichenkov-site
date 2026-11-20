@@ -2111,3 +2111,28 @@ body {
   .motion-ready.motion-pending { opacity: 1; transform: none; }
   .motion-ready, .service-list > .motion-ready { transition: none; }
 }
+
+
+/* About capabilities: quiet orange titles with no decorative bars or motion. */
+.about-page .services .service-title {
+  color: var(--accent);
+  transition: none;
+}
+
+.about-page .services .service-title::before,
+.about-page .services .service-list > li::before {
+  content: none;
+  display: none;
+}
+
+.about-page .services .service-list > li {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-page .services .service-list > li:hover {
+    padding-left: 0;
+  }
+}
