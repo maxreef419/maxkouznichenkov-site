@@ -2091,6 +2091,11 @@ body {
   transform: none;
 }
 
+.about-page .services .service-list,
+.about-page .services .service-list > li {
+  border: 0;
+}
+
 .about-page .services .service-title::before,
 .about-page .services .service-list > li::before {
   content: none;
