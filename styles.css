@@ -1699,38 +1699,7 @@ html[lang='ru'] .contact-headline {
   margin-top: 8px;
 }
 
-/* ---- 3. hover строк в списке услуг ---- */
-.service-list li {
-  position: relative;
-  padding-left: 0;
-}
-
-.service-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: clamp(30px, 3.4vw, 46px);
-  bottom: clamp(30px, 3.4vw, 46px);
-  width: 1px;
-  background: var(--accent);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .service-list li {
-    transition: color 0.35s ease, padding-left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .service-list li:hover {
-    padding-left: 14px;
-  }
-
-  .service-list li:hover::before {
-    opacity: 1;
-  }
-}
-
+/* Service list rows stay still and have no hover rail. */
 /* ---- 4. sticky-заголовок в 03 ---- */
 .about-grid {
   display: grid;
@@ -2115,8 +2084,11 @@ body {
 
 /* About capabilities: quiet orange titles with no decorative bars or motion. */
 .about-page .services .service-title {
-  color: var(--accent);
+  color: var(--accent-hover);
   transition: none;
+  animation: none;
+  opacity: 1;
+  transform: none;
 }
 
 .about-page .services .service-title::before,
