@@ -7,7 +7,7 @@
   var items = Array.from(document.querySelectorAll(
     '.cinematic > .section-num, .cinematic > .section-display, ' +
     '.cinematic-item, .reel-item, .about-head, .about .prose, ' +
-    '.services > .section-display, .service-list > li, ' +
+    '.services > .section-display, ' +
     '.clients > *, .contact > *, .about-socials'
   ));
   var observer = new IntersectionObserver(function (entries) {
